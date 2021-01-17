@@ -1,4 +1,4 @@
-const db = require('../../lib/database')
+const {db} = require('../')
 
 
 function getInfo(id){

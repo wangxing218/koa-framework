@@ -1,11 +1,12 @@
 /**
- * 配置入口，可根据不同环境覆盖
+ * config entry
  */
 const config = {
   // system
   system: {
     host: '0.0.0.0',
     port: 3100,
+    prefix: '/api',
   },
   // redis
   redis: {
@@ -35,6 +36,12 @@ const config = {
     database: 'test',
     connectionLimit: 1,
     logSql: true,
+  },
+  // logger
+  logger:{
+    type: 'console',
+    path: 'runtime/logs',
+    pattern: 'yyyy-MM-dd',
   },
 }
 

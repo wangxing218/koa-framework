@@ -1,6 +1,6 @@
 /**
- * 权限拦截中间件
- * @param {String} tag 权限标识
+ * auth middleware
+ * @param {String} tag auth tag - eg: system.user.add
  */
 
 module.exports = function(tag){

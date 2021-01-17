@@ -1,5 +1,5 @@
 /**
- * 开发环境配置
+ * development config
  */
 
 module.exports = {

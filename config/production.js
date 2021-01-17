@@ -1,5 +1,5 @@
 /**
- * 生产环境配置
+ * production config
  */
 
 module.exports = {
