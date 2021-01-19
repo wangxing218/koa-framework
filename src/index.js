@@ -1,26 +1,28 @@
-const config = require('../config')
 const Router = require('koa-router')
-const cache = require('../lib/cache')
+const config = require('../config')
+// const cache = require('../lib/cache')
 const logger = require('../lib/logger')
 const resp = require('./common/resp')
 const validator = require('../lib/validator')
-const { db, Model, model } = require('../lib/database')
+// const { db, Model } = require('../lib/database')
+const helper = require('../lib/helper')
 
 // router
 const router = new Router({
   prefix: config.system.prefix
 })
 
+
 // export what you need
 module.exports = {
   config,
   router,
-  cache,
+  // cache,
+  helper,
   validator,
   resp,
-  db,
-  model,
-  Model,
+  // db,
+  // Model,
   logger,
 }
 

@@ -5,7 +5,6 @@
 
 module.exports = function(tag){
   return async function(ctx, next){
-    console.log('session:', ctx.session.user)
     next()
   }
 }

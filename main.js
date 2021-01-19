@@ -12,6 +12,12 @@ const error = require('./src/middleware/error')
 const config = require('./config')
 const app = new Koa()
 
+// static
+app.use(static('public'))
+
+// middleware
+app.use(error())
+
 // helmet
 app.use(helmet())
 
@@ -19,16 +25,15 @@ app.use(helmet())
 app.use(body())
 
 // session
+app.keys = config.session.keys
 app.use(session({
   ...config.session,
-  store: config.session.store === 'redis' ? new require('./lib/cache/store')({
-    prefix: config.session.prefix,
+  maxAge: config.session.maxAge / 1000,
+  store: config.session.type === 'redis' ? new (require('./lib/cache/store'))({
+    prefix: config.session.cachePrefix,
     expire: config.session.expire,
   }) : null
 }, app))
-
-// middleware
-app.use(error())
 
 // view engine
 app.use(nunjucks({
@@ -39,13 +44,10 @@ app.use(nunjucks({
 // router
 app.use(router.routes())
 
-// static
-app.use(static('public'))
-
 // listen
 const server = app.listen(config.system.port || 80, config.system.host || '127.0.0.1')
 server.on('listening', () => {
-  let {address, port} = server.address()
+  let { address, port } = server.address()
   address = address === '0.0.0.0' ? '127.0.0.1' : address
   port = port === 80 ? '' : ':' + port
   const link = `\x1B[32mhttp://${address}${port}\x1B[39m`

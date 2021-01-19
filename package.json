@@ -4,19 +4,20 @@
   "description": "koa-framework",
   "main": "main.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon --delay 1 main.js",
+    "dev": "cross-env NODE_ENV=development nodemon main.js --delay 1",
     "prod": "cross-env NODE_ENV=production node main.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wangxing218/koa-framework.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "koa",
+    "framework",
+    "egg"
+  ],
+  "author": "wangxing218",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/wangxing218/koa-framework/issues"
-  },
   "homepage": "https://github.com/wangxing218/koa-framework#readme",
   "dependencies": {
     "cross-env": "^7.0.3",
@@ -29,7 +30,8 @@
     "koa-session": "^6.1.0",
     "koa-static": "^5.0.0",
     "log4js": "^6.3.0",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "sqlite3": "^5.0.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
