@@ -30,7 +30,7 @@ const config = {
   },
   // database
   database: {
-    default: 'mysql',
+    default: 'sqlite',
     mysql: {
       type: 'mysql',
       port: 3306,

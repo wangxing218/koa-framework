@@ -4,7 +4,7 @@ const config = require('../config')
 const logger = require('../lib/logger')
 const resp = require('./common/resp')
 const validator = require('../lib/validator')
-// const { db, Model } = require('../lib/database')
+const { db, Model } = require('../lib/database')
 const helper = require('../lib/helper')
 
 // router
@@ -21,7 +21,7 @@ module.exports = {
   helper,
   validator,
   resp,
-  // db,
+  db,
   // Model,
   logger,
 }

@@ -1,5 +1,6 @@
-const {router, validator,resp, logger} = require('../')
+const {router, validator,resp,db, logger} = require('../')
 
 router.get('/api', async ctx => {
-  ctx.body = resp.ok('Hello koa')
+  const info = await db('user').count()
+  ctx.body = resp.ok(info)
 })
